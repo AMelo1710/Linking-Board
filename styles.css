@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background: var(--bg);
+}
+
+:root{
+    --tc: rgb(255, 255, 255);
+    --bg: linear-gradient(to right, rgb(30, 30, 30), rgb(75, 108, 183), rgb(24, 40, 72));
+    --cbg: linear-gradient(to right, rgb(255, 102, 178), rgb(158, 230, 217));
+    --stroke: rgba(255, 255, 255, 0.5);
+    --surface: rgba(255, 255, 255, 0.05);
+    --surfaceHover: rgba(0, 0, 0, 0.02);
+    --highlightHover: rgba(255, 255, 255, 0.2);
+    --textshadow:2px 2px 8px rgba(255, 255, 255, 0.55);
+    --switch:url(assets/images/svg/moon-stars.svg)
+}
+
+.light{
+    --tc: rgb(0, 0, 0);
+    --bg: linear-gradient(to right, rgb(255, 126, 95), rgb(254, 180, 123));
+    --cbg: linear-gradient(to right, rgb(44, 62, 80), rgb(127, 160, 224), rgb(31, 51, 84));
+    --stroke: rgba(0, 0, 0, 0.5);
+    --surface: rgba(0, 0, 0, 0.05);
+    --surfaceHover: rgba(0, 0, 0, 0.02);
+    --highlightHover: rgba(0, 0, 0, 0.1);
+    --textshadow:2px 2px 8px rgba(0, 0, 0, 0.55);
+    --switch:url(assets/Images/svg/sun.svg);
+}   
+
+h1{
+    text-transform: uppercase;
+    text-shadow: var(--textshadow);
+    color: var(--cbg);
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+    margin: 16px;
+}
+body{
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+body * {
+    font-family: 'poppins', sans-serif;
+    color: var(--tc);
+}
+
+#container {
+    width: 100%;
+    max-width: 588px;
+    margin: auto;
+    margin-top: 56px;
+    padding: 0 24px;
+}
+
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+
+#profile p {
+    color: var(--cbg);
+    letter-spacing: 2px;
+    text-shadow: var(--textshadow);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#profile img {
+    width: 112px;
+}
+
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+    cursor: pointer;
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+    animation: slide-out 0.2s;
+}
+
+#switch button:hover{
+    outline: 8px solid var(--highlightHover);
+}
+
+.light #switch button{
+    animation: slide-in 0.4s forwards;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px ;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface);
+    border: 1px solid var(--stroke);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surfaceHover);
+    border: 1.5px solid var(--tc);
+}
+
+#SocialLinks{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    font-size: 24px;
+    
+}
+
+#SocialLinks a{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#SocialLinks a:hover{
+    background: var(--highlightHover);
+    padding: 16px;
+
+}
+
+
+footer {
+    padding: 24px 0;
+    color: var(--tc);
+    text-align: center;
+    font-size: 14px;
+    text-shadow: var(--textshadow);
+}
+
+
+@media (min-width: 700px) {
+    :root{
+        --bg: linear-gradient(to right, rgb(30, 30, 30), rgb(75, 108, 183), rgb(24, 40, 72));
+    }
+
+    .light{
+        --bg: linear-gradient(to right, rgb(255, 126, 95), rgb(254, 180, 123));
+    }
+}
+
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%
+    }
+}
+
+@keyframes slide-out {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0
+    }
+}
